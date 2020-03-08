@@ -6,6 +6,22 @@
 
 FROM tensorflow/tensorflow:1.15.0-gpu-py3
 
+RUN apt-get install -y --no-install-recommends \
+        build-essential \
+        curl \
+        libfreetype6-dev \
+        libpng-dev \
+        libzmq3-dev \
+        pkg-config \
+        openssh-server \
+        openssh-client \
+        rsync \
+        unzip \
+        vim
+
+
 RUN pip install scipy==1.3.3
 RUN pip install requests==2.22.0
-RUN pip install Pillow==6.2.1
+RUN pip install Pillow==6.2.1 jupyter tqdm
+EXPOSE 8888
+EXPOSE 6006
